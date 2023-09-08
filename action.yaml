@@ -21,12 +21,13 @@ inputs:
   command:
     description: 'Shell Command'
     required: true
+    
+name: Debug
+  run: |
+    ls -la
+    pwd
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
   
-- name: Debug
-  run: |
-    ls -la
-    pwd
