@@ -22,6 +22,6 @@ inputs:
     description: 'Shell Command'
     required: true
 
-  runs:
-    using: 'java'
-    main-class: 'sshAgent.SSHConnection'
+runs:
+  using: 'java'
+  main-class: 'sshAgent.SSHConnection'
