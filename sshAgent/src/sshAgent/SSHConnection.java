@@ -8,11 +8,11 @@ import com.jcraft.jsch.*;
 public class SSHConnection {
 
     public static void main(String[] args) {
-        String sshPassword = System.getenv("SERVER_PASSWORD");
-        String sshHost = System.getenv("SERVER_ADDRESS");
-        String sshUsername = System.getenv("SERVER_USERNAME");
-        int sshPort = Integer.parseInt(System.getenv("SERVER_PORT"));
-        String sshCommand = System.getenv("SHELL_COMMAND");
+        String sshPassword = System.getenv("INPUT_PASSWORD");
+        String sshHost = System.getenv("INPUT_ADDRESS");
+        String sshUsername = System.getenv("INPUT_USERNAME");
+        int sshPort = Integer.parseInt(System.getenv("INPUT_PORT"));
+        String sshCommand = System.getenv("INPUT_COMMAND");
 
         try {
             JSch jsch = new JSch();
