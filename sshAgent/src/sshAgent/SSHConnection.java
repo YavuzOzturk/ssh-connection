@@ -12,6 +12,7 @@ public class SSHConnection {
         String sshHost = System.getenv("SERVER_ADDRESS");
         String sshUsername = System.getenv("SERVER_USERNAME");
         int sshPort = Integer.parseInt(System.getenv("SERVER_PORT"));
+        String sshCommand = System.getenv("SHELL_COMMAND");
 
         try {
             JSch jsch = new JSch();
@@ -21,7 +22,7 @@ public class SSHConnection {
             session.connect();
 
             ChannelExec channelExec = (ChannelExec) session.openChannel("exec");
-            channelExec.setCommand("echo 'Hello from the remote server!'");
+            channelExec.setCommand(sshCommand);
             channelExec.connect();
 
             InputStream in = channelExec.getInputStream();
