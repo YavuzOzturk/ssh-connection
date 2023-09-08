@@ -5,7 +5,7 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Copy your Java program JAR file to the container
-COPY sshAgent/target/sshAgent-0.0.1-SNAPSHOT.jar ./app.jar
+COPY ssh-connection/sshAgent/target/sshAgent-0.0.1-SNAPSHOT.jar ./app.jar
 
 # Define any environment variables if needed (e.g., for configuration)
 ENV JAVA_OPTS=""
