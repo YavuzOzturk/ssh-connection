@@ -25,3 +25,8 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  
+- name: Debug
+  run: |
+    ls -la
+    pwd
