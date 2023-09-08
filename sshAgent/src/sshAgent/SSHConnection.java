@@ -8,23 +8,22 @@ import com.jcraft.jsch.*;
 public class SSHConnection {
 
     public static void main(String[] args) {
-        String sshPassword = System.getenv("INPUT_SSH-PASSWORD");
-        String sshHost = System.getenv("INPUT_SSH-HOST");
-        String sshUsername = System.getenv("INPUT_SSH-USERNAME");
+        String sshPassword = System.getenv("SERVER_PASSWORD");
+        String sshHost = System.getenv("SERVER_ADDRESS");
+        String sshUsername = System.getenv("SERVER_USERNAME");
+        int sshPort = Integer.parseInt(System.getenv("SERVER_PORT"));
 
         try {
             JSch jsch = new JSch();
-            Session session = jsch.getSession(sshUsername, sshHost, 22);
+            Session session = jsch.getSession(sshUsername, sshHost, sshPort);
             session.setPassword(sshPassword);
             session.setConfig("StrictHostKeyChecking", "no");
             session.connect();
 
-            // Run a command on the remote server (e.g., echo)
             ChannelExec channelExec = (ChannelExec) session.openChannel("exec");
             channelExec.setCommand("echo 'Hello from the remote server!'");
             channelExec.connect();
 
-            // Read the command output
             InputStream in = channelExec.getInputStream();
             byte[] tmp = new byte[1024];
             while (true) {
@@ -45,7 +44,6 @@ public class SSHConnection {
                 }
             }
 
-            // Disconnect the SSH session
             channelExec.disconnect();
             session.disconnect();
 
