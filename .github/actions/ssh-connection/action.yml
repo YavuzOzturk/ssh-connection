@@ -1,0 +1,23 @@
+name: 'SSH Connection'
+description: 'GitHub SSH Connection Action'
+
+inputs:
+  SERVER_PASSWORD:
+    description: 'SSH password'
+    required: true
+    
+  SERVER_ADDRESS:
+    description: 'SSH host (server IP)'
+    required: true
+    
+  SERVER_USERNAME:
+    description: 'SSH username'
+    required: true
+    
+  SERVER_PORT:
+    description: 'SSH Port'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
