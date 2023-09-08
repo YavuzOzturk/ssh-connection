@@ -23,5 +23,5 @@ inputs:
     required: true
 
 runs:
-  using: 'java'
-  main-class: 'sshAgent.SSHConnection'
+  using: 'docker'
+  image: 'Dockerfile'
