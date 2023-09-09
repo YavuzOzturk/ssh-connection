@@ -1,4 +1,4 @@
-name: 'SSH Connection'
+name: 'SSH Connection with Java'
 description: 'GitHub SSH Connection Action'
 
 inputs:
@@ -25,4 +25,3 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  
