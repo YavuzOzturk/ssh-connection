@@ -14,6 +14,7 @@ public class SSHConnection {
         int sshPort = Integer.parseInt(System.getenv("INPUT_PORT"));
         String sshCommand = System.getenv("INPUT_COMMAND");
 
+        
         try {
             JSch jsch = new JSch();
             Session session = jsch.getSession(sshUsername, sshHost, sshPort);
